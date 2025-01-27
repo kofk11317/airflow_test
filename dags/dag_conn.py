@@ -19,4 +19,4 @@ with DAG(
     t4 = EmptyOperator(task_id='task4')
     t5 = EmptyOperator(task_id='task5')
 
-    t1 >> t2 >> [t3, t4] >> t5
+    t1 >> t2 >> [t3, t4] >> t5 # 같은 레벨에서 실행되는 경우에는 리스트로
