@@ -2,7 +2,7 @@ from airflow import DAG
 import pendulum
 import random # 랜덤 모듈
 from airflow.operators.python import PythonOperator
-from common.common_func import select_fruit
+from common.common_func import get_sftp_client
 with DAG(
     dag_id='dag_python_func',
     default_args={
@@ -14,5 +14,5 @@ with DAG(
     
     task_get_sftp = PythonOperator(
         task_id='task_get_sftp',
-        python_callable=select_fruit
+        python_callable=get_sftp_client
     )

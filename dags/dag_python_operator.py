@@ -1,7 +1,7 @@
 from airflow import DAG
 import pendulum
 import random # 랜덤 모듈
-from airflow.operators.python_operator import PythonOperator
+from airflow.operators.python import PythonOperator
 with DAG(
     dag_id='dag_python_operator',
     default_args={
