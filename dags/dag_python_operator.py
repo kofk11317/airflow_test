@@ -2,6 +2,7 @@ from airflow import DAG
 import pendulum
 import random # 랜덤 모듈
 from airflow.operators.python import PythonOperator
+from airflow.decorators import task
 with DAG(
     dag_id='dag_python_operator',
     default_args={
@@ -14,7 +15,11 @@ with DAG(
     def select_fruit():
         fruit = ['apple', 'banana', 'cherry']
         print(fruit[randint])
-    py_t1 = PythonOperator(
-        task_id='py_t1',
-        python_callable=select_fruit
-    )
+
+    
+    def print_fruit(some_string: str):
+        select_fruit()
+        print(some_string)
+        select_fruit()
+
+ 
