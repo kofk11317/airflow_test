@@ -24,7 +24,7 @@ with DAG(
             print(start_date)
             print(end_date)
             
-    # 2. Python 자체 라이브러리를 사용한 방법
+    # 2. Python 자체 라이브러리를 사용한 방법 이게 좀 더 편한 것 같음-> 코드 디버깅 시 유리 
     @task(task_id = 'task_direct_calc')
     def get_datetime_calc(**kwargs):
         # Tip) 가급적이면 스케줄러의 부하를 줄이기 위해 operator 안에서만 써야 하는 라이브러리는 operator 안에서 선언해 줄 것!

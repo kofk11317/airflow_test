@@ -16,7 +16,7 @@ with DAG(
         print(f"ds: {kwargs['ds']}")
         print(f'ts: {kwargs["ts"]}')# timestamp
         print(f'next_ds: {kwargs["next_ds"]}')
-        print(f'data_interval_start: {kwargs["data_interval_start"]}')
+        print(f'data_interval_start: {kwargs["data_interval_start"]}') #전에 배치가 돌았던 날 
         print(f'data_interval_end: {kwargs["data_interval_end"]}')
         print(f'task_instance: {kwargs["ti"]}')
         
@@ -29,5 +29,5 @@ with DAG(
         task_id='t2',
         python_callable=pyhthon_template,
         op_args={'start_date': '{{data_interval_start | ds}}', 'end_date': '{{data_interval_end | ds}}'}
-    )
+    ) # | ds yyyy-mm-dd 형식으로 반환 string형식
     print_ >> t2
